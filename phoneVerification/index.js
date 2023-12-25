@@ -12,7 +12,7 @@ verifyPhone.sendOtp = async (phoneNo) => {
   const response = await client.verify.v2
     .services(verifySid)
     .verifications.create({ to: phoneNo, channel: "sms" })
-  
+  console.log('==>>>', response)
   return response;
 }
 
@@ -20,7 +20,7 @@ verifyPhone.confirmOtp = async (phoneNo, otp) => {
   const response = await client.verify.v2
     .services(verifySid)
     .verificationChecks.create({ to: phoneNo, code: otp });
-  
+  console.log('--->>', response)
   return response;
 }
 
